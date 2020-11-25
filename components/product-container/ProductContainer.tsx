@@ -3,12 +3,10 @@ import React from "react";
 import styled from 'styled-components';
 
 const ProductWrapper = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
     box-sizing: border-box;
-    padding: 0;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
 `
 
 

@@ -12,7 +12,7 @@ const CardContainer = styled.div`
     background-color: white;
     color: black;
     min-height: 400px;
-    width: 16%;
+    width: 250px;
     transition: all 0.3s ease-in-out;
 
     &:hover {
