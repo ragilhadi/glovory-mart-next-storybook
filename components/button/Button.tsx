@@ -85,16 +85,18 @@ export interface ButtonProps {
   text?: string;
   disable?: boolean;
   variant?: "primary" | "secondary" | "ghost";
-  size?: "small" | "medium" | "full"
+  size?: "small" | "medium" | "full";
+  handleClick?: Function;
 };
 
 const Button: React.FC<ButtonProps> = ({
   children,
   disable,
+  handleClick,
   ...rest
 }) => {
   return (
-    <ButtonContainer variant disabled={disable} {...rest}>{children}</ButtonContainer>
+    <ButtonContainer onClick={handleClick} disabled={disable} {...rest}>{children}</ButtonContainer>
   )
 }
 

@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import DrawerHeader from './DrawerHeader'
 
 const DrawerContainer = styled.div`
-  position: relative;
-  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
   background-color: black;
   opacity: 55%;
 `
@@ -33,26 +37,28 @@ const DrawerHeaderWrapper = styled.div`
 
 export interface DrawerProps {
   isOpen?: boolean;
+  handleClose?: Function;
 };
 
 const Drawer: React.FC<DrawerProps> = ({
   children,
   isOpen,
+  handleClose,
   ...rest
 }) => {
-  return (
-    <>
-        {isOpen ? (
-            <DrawerContainer>
-                <DrawerWrapper>
-                    <DrawerHeaderWrapper>
-                        <DrawerHeader header="Cart" option={true}/>
-                    </DrawerHeaderWrapper>
-                </DrawerWrapper>
-            </DrawerContainer>
-        ) : null}
-    </>
-  )
+    return (
+        <>
+            {isOpen ? (
+                <DrawerContainer onClick={handleClose}>
+                    <DrawerWrapper>
+                        <DrawerHeaderWrapper>
+                            <DrawerHeader header="Cart" option={true}/>
+                        </DrawerHeaderWrapper>
+                    </DrawerWrapper>
+                </DrawerContainer>
+            ) : null}
+        </>
+    )
 }
 
 Drawer.defaultProps = {
