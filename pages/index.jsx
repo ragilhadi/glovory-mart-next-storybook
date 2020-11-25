@@ -19,13 +19,16 @@ const Home = () => {
           const result = await axios(
               'https://my-json-server.typicode.com/ragilhadi/glovory-mart-next-storybook/product',
           )
-          setData(result.data)
+          setData(result.data);
       }
+      fetchData();
   }, [])
 
   const filterProduct = data.filter( data => 
     data.name.toLowerCase().includes(search.toLowerCase())
   )
+
+  console.log(search)
   
   return (
     <>

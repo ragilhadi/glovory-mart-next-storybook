@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from "react";
+import Button from '../button/Button'
 
 const CardContainer = styled.div`
     display: flex;
@@ -21,16 +22,59 @@ const CardContainer = styled.div`
     }
 `
 
-export interface CardProps {
+const Image = styled.img`
+    width: 180px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+`
 
+const DescriptionText = styled.h4`
+    font-size: 1.15rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+`
+
+const PriceText = styled.p`
+    font-size: 1.25rem;
+    color: #DB574D;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-bottom: 1.25rem;
+`
+
+export interface CardProps {
+    url?: String;
+    description?: String;
+    price?: String
 }
 
 const Card: React.FC<CardProps> = ({
-    children
+    children,
+    url,
+    description,
+    price
 }) => {
     return (
-        <CardContainer>{children}</CardContainer>
+        <CardContainer>
+            <Image 
+                src="https://i.ibb.co/Wfsp74f/1.png"
+                alt="Chitato Products"
+            />
+            <DescriptionText>
+                Qtela Tempe Cabai Rawit 55g
+            </DescriptionText>
+            <PriceText>
+                Rp.7000
+            </PriceText>
+            <Button variant="primary" size="full">Add to Cart</Button>
+        </CardContainer>
     )
 }
+
+Card.defaultProps = {
+    description: "Qtela Tempe Cabai Rawit 55g",
+    price: "7000",
+    url: "https://i.ibb.co/Wfsp74f/1.png"
+  }
 
 export default Card;
