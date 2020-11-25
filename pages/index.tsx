@@ -6,12 +6,26 @@ import Search from "@components/search/Search";
 import { ShoppingCart, AccountCircle } from "@material-ui/icons";
 import React, { useState, useEffect }  from 'react'
 import styled from 'styled-components';
-import ButtonStyle from '../components/button/Button'
+import ProductContainer from '../components/product-container/ProductContainer'
 import PRODUCT_DATA from '../data/Product'
+import axios from 'axios';
 
 const Home = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+      const fetchData = async () => {
+          const result = await axios(
+              'https://my-json-server.typicode.com/ragilhadi/glovory-mart-next-storybook/product',
+          )
+          setData(result.data)
+      }
+  }, [])
+
+  const filterProduct = data.filter( data => 
+    data.name.toLowerCase().includes(search.toLowerCase())
+  )
   
   return (
     <>
@@ -41,8 +55,7 @@ const Home = () => {
             </NavigationWrapper>
     </Navbar>
     <BodyContainer>
-        <h1>Welcome to My Next App!</h1>
-        <ButtonStyle variant="primary"> Button </ButtonStyle>
+        <ProductContainer products={filterProduct} />
     </BodyContainer>
     <Footer>
             <p>© GlovoryMart - All rights reserved.</p>
@@ -65,6 +78,5 @@ const BodyContainer = styled.main`
     background-color: #F5F6F8;
 `
 
-const ProductContainer = styled.div``
 
 export default Home;
