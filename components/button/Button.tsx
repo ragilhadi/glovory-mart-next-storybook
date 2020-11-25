@@ -76,7 +76,7 @@ const ButtonContainer = styled.button`
 export interface ButtonProps {
   text?: string;
   disable?: boolean;
-  variant?: "primary" | "secondary" | "ghost"
+  variant?: "primary" | "secondary" | "ghost";
   full?: boolean;
 };
 
