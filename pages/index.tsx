@@ -4,12 +4,15 @@ import Navbar from "@components/navbar/Navbar";
 import NavigationWrapper from "@components/navbar/NavigationWrapper";
 import Search from "@components/search/Search";
 import { ShoppingCart, AccountCircle } from "@material-ui/icons";
-import React, { useState }  from 'react'
+import React, { useState, useEffect }  from 'react'
 import styled from 'styled-components';
 import ButtonStyle from '../components/button/Button'
+import PRODUCT_DATA from '../data/Product'
 
 const Home = () => {
   const [search, setSearch] = useState("");
+  const [data, setData] = useState([]);
+  
   return (
     <>
     <Navbar>
@@ -57,8 +60,11 @@ const ImageWrapper = styled.img`
 `
 
 const BodyContainer = styled.main`
-    padding: 0 5%;
+    padding: 64px 5%;
     min-height: calc(100vh - 80px - 100px);
+    background-color: #F5F6F8;
 `
+
+const ProductContainer = styled.div``
 
 export default Home;
