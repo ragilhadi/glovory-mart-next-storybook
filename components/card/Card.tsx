@@ -4,7 +4,8 @@ import React from "react";
 const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     border-radius: 8px;
     padding: 16px;
     background-color: white;

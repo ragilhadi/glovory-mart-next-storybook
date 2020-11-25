@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const ButtonContainer = styled.button`
   box-sizing: border-box;
   min-width: 180px;
+  width: ${(props) => (props.full ? "100%" : "inherit")};
   padding: 12px 16px;
   border-radius: 10px;
   outline: none;
@@ -76,7 +77,7 @@ export interface ButtonProps {
   text?: string;
   disable?: boolean;
   variant?: "primary" | "secondary" | "ghost"
-
+  full?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -92,6 +93,7 @@ const Button: React.FC<ButtonProps> = ({
 Button.defaultProps = {
   variant: "primary",
   disable: false,
+  full: false,
 }
 
 export default Button;

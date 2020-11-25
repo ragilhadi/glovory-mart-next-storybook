@@ -12,13 +12,37 @@ const ButtonIconContainer = styled.button`
   padding: 24px;
   border-radius: 10px;
   outline: none;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   border: none;
   color: black;
-  background-color: #F8F9FD;
+  border: ${(props) => {
+    switch (props.variant) {
+      case 'primary':
+        return "1.5px solid #F8F9FD";
+      case 'secondary':
+        return "1.5px solid #DAE1FF";
+    }
+    }};
+  background-color: ${(props) => {
+    switch (props.variant) {
+      case 'primary':
+        return "#F8F9FD";
+      case 'secondary':
+        return "#fff";
+    }
+    }};
 
   &:hover {
     cursor: pointer;
+    background-color: ${(props) => {
+    switch (props.variant) {
+      case 'primary':
+        return "#EFF2FF";
+      case 'secondary':
+        return "#D53B2F";
+    }
+    }};
+    /* background-color: #EFF2FF; */
   }
 
 `
@@ -39,6 +63,7 @@ const Badge = styled.div`
 
 export interface ButtonIconProps {
   icon?: React.ReactElement;
+  variant?: 'primary' | 'secondary';
   badge?: boolean;
   text?: String;
 
@@ -65,6 +90,7 @@ const ButtonIcon: React.FC<ButtonIconProps> = ({
 
 ButtonIcon.defaultProps = {
   badge: false,
+  variant: "primary",
   text: "",
 }
 
