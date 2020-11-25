@@ -5,8 +5,9 @@ import styled from 'styled-components';
 const ProductWrapper = styled.div`
     display: flex;
     box-sizing: border-box;
-    padding: 0 5%;
-    justify-content: flex-start;
+    padding: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 `
 
@@ -23,7 +24,7 @@ const ProductContainer: React.FC<NavbarProps> =({
     return (
     <ProductWrapper>
         {products.map(product => (
-            <Card key={product.id}  />
+            <Card key={product.id} url={product.url} description={product.name} price={product.price}  />
         ))}
     </ProductWrapper>
     )

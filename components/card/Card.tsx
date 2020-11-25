@@ -11,8 +11,8 @@ const CardContainer = styled.div`
     padding: 16px;
     background-color: white;
     color: black;
-    min-height: 320px;
-    width: 20%;
+    min-height: 400px;
+    width: 16%;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -57,14 +57,14 @@ const Card: React.FC<CardProps> = ({
     return (
         <CardContainer>
             <Image 
-                src="https://i.ibb.co/Wfsp74f/1.png"
+                src={url}
                 alt="Chitato Products"
             />
             <DescriptionText>
-                Qtela Tempe Cabai Rawit 55g
+                {description}
             </DescriptionText>
             <PriceText>
-                Rp.7000
+               {`Rp. ${price}`}
             </PriceText>
             <Button variant="primary" size="full">Add to Cart</Button>
         </CardContainer>
