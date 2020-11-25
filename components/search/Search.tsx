@@ -76,7 +76,7 @@ const Search: React.FC<SearchProps> = ({
       />
       {value  && clearValue ? (
         <CancelIcon
-          onClick={handleClear}
+          onClick={() => handleClear}
           style={{
             color: "#D8D8D8",
             position: "absolute",
