@@ -1,9 +1,10 @@
-import { Children } from 'react';
 import styled from 'styled-components';
+import React from "react";
 import Navbar from './Navbar';
 
 const NaviWrapperContainer = styled.div`
     display: flex;
+    color: black;
 `
 
 

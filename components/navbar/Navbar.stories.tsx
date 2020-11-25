@@ -3,10 +3,13 @@ import { storiesOf } from '@storybook/react'
 import Navbar from './Navbar'
 import NavigationWrapper from './NavigationWrapper'
 import Search from '../search/Search'
-import IconButton from '../button-icon/ButtonIcon'
 import styled from 'styled-components';
-import { RiAccountCircleLine, RiShoppingBag3Fill} from 'react-icons/ri'
+import { css } from 'styled-components';
 import ButtonIcon from '../button-icon/ButtonIcon'
+import ShoppingCart from "@material-ui/icons/ShoppingCart"
+import AccountCircle from "@material-ui/icons/AccountCircle"
+
+
 
 storiesOf("Navbar", module).add("Navbar", () => {
     const [search, setSearch] = useState("");
@@ -24,12 +27,12 @@ storiesOf("Navbar", module).add("Navbar", () => {
             </NavigationWrapper>
             <NavigationWrapper>
                 <ButtonIcon
-                    icon={<RiShoppingBag3Fill style={{color: "black"}}/>}
+                    icon={<ShoppingCart />}
                     badge={true}
                     text="10"
                 />
                 <ButtonIcon
-                    icon={<RiAccountCircleLine />}
+                    icon={<AccountCircle />}
                 />
             </NavigationWrapper>
         </Navbar>

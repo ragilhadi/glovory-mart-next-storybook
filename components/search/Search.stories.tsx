@@ -18,5 +18,13 @@ storiesOf("Search", module).add("Search", () => {
 
 storiesOf("Search", module).add("Search Large", () => {
     const [search, setSearch] = useState("");
-    return <Search size="lg"/>;
+    return (
+      <Search 
+        size="lg"
+        clearValue
+        value={search}
+        handleChange={(e) => setSearch(e.target.value)}
+        handleClear={() => setSearch("")}
+      />
+    )
   });
