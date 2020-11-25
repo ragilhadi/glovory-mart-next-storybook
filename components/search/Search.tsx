@@ -74,7 +74,7 @@ const Search: React.FC<SearchProps> = ({
       <SearchIcon
         style={{  position: "absolute", left: "16px" }}
       />
-      {value.length > 0 && clearValue ? (
+      {value  && clearValue ? (
         <CancelIcon
           onClick={handleClear}
           style={{

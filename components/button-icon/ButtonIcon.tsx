@@ -3,71 +3,69 @@ import styled from 'styled-components';
 
 const ButtonIconContainer = styled.button`
   box-sizing: border-box;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 48px;
   height: 48px;
-  padding: 16px;
+  padding: 24px;
   border-radius: 10px;
   outline: none;
   transition: all 0.2s ease-in-out;
   border: none;
-  color: white;
+  color: black;
   background-color: #F8F9FD;
 
-  /* &:hover {
+  &:hover {
     cursor: pointer;
-    background-color: ${(props) => {
-    switch (props.variant) {
-      case 'primary':
-        return "#DB574D";
-      case 'secondary':
-        return "#EE7C73";
-      case 'ghost':
-        return "#EE7C73"
-      }
-     }};
-
-    color: ${(props) => {
-      switch (props.variant) {
-        case 'primary':
-          return "#fff";
-        case 'secondary':
-          return "white";
-        case 'ghost':
-          return "white"
-      }
-    }};
   }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-  } */
 
 `
 
+const Badge = styled.div`
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: #DB574D;
+  color: white;
+  font-size: 0.6rem;
+`
+
 export interface ButtonIconProps {
-  text?: string;
-  disable?: boolean;
   icon?: React.ReactElement;
+  badge?: boolean;
+  text?: String;
 
 };
 
 const ButtonIcon: React.FC<ButtonIconProps> = ({
   children,
-  disable,
+  badge,
+  text,
   icon,
   ...rest
 }) => {
   return (
-    <ButtonIconContainer variant disabled={disable} {...rest}>{icon}</ButtonIconContainer>
+    <ButtonIconContainer {...rest}>
+      {icon}
+      {badge && text ? (
+        <Badge>{text}</Badge>
+      ) : null
+    }
+      
+      </ButtonIconContainer>
   )
 }
 
 ButtonIcon.defaultProps = {
-  disable: false,
+  badge: false,
+  text: "",
 }
 
 export default ButtonIcon;
