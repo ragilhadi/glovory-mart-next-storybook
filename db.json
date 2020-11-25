@@ -1,4 +1,5 @@
-[
+{
+    "product": [
     {
         "id": 1,
         "name": "Qtela Tempe Cabai Rawit 55g",
@@ -35,4 +36,5 @@
         "imageUrl": "https://i.ibb.co/Wfsp74f/1.png",
         "price": 7500
       }
-]
+    ]
+}
