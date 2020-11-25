@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import DrawerHeader from './DrawerHeader'
 
 const DrawerContainer = styled.div`
   position: relative;
@@ -20,8 +21,9 @@ const DrawerWrapper = styled.div`
   box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.1);
 `
 
-const DrawerHeader = styled.div`
+const DrawerHeaderWrapper = styled.div`
     display: flex;
+    padding: 16px;
     justify-content: space-between;
     align-items: center;
     height: 70px;
@@ -43,9 +45,9 @@ const Drawer: React.FC<DrawerProps> = ({
         {isOpen ? (
             <DrawerContainer>
                 <DrawerWrapper>
-                    <DrawerHeader>
-
-                    </DrawerHeader>
+                    <DrawerHeaderWrapper>
+                        <DrawerHeader header="Cart" option={true}/>
+                    </DrawerHeaderWrapper>
                 </DrawerWrapper>
             </DrawerContainer>
         ) : null}

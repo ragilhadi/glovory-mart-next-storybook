@@ -3,6 +3,7 @@ import React from "react";
 import ButtonICon from '../button-icon/ButtonIcon'
 import Add from "@material-ui/icons/Add"
 import Remove from "@material-ui/icons/Remove"
+import Delete from "@material-ui/icons/Delete"
 
 const ListItemContainer = styled.div`
     display: flex;
@@ -34,6 +35,15 @@ const WrapperQuantity = styled.div`
     align-items: center;
 `
 
+const TextDescription = styled.p`
+    font-size: 1rem;
+    margin-bottom: 1rem;
+`
+
+const TextPrice = styled.h4`
+    font-size: 1rem;
+`
+
 
 export interface ListItemProps {
 
@@ -49,7 +59,9 @@ const ListItem: React.FC<ListItemProps> = ({
                 alt="chitato product" 
             />
             <WrapperDescription>
-                FRISIAN FLAG UHT Purefarm Cokelat 225 ml
+                <TextDescription>
+                    FRISIAN FLAG UHT Purefarm Cokelat 225 ml
+                </TextDescription>
                 <WrapperQuantity>
                  <ButtonICon
                     variant="secondary"
@@ -64,7 +76,10 @@ const ListItem: React.FC<ListItemProps> = ({
                 </WrapperQuantity>
             </WrapperDescription>
             <WrapperPrice>
-                Rp.7000
+                <Delete />
+                <TextPrice>
+                    Rp.7000
+                </TextPrice>
             </WrapperPrice>
         </ListItemContainer>
     )

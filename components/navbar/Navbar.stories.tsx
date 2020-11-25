@@ -9,6 +9,12 @@ import ButtonIcon from '../button-icon/ButtonIcon'
 import ShoppingCart from "@material-ui/icons/ShoppingCart"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 
+const ImageWrapper = styled.img`
+    height: 30px;
+    object-fit: contain;
+    margin-right: 3rem;
+`
+
 
 
 storiesOf("Navbar", module).add("Navbar", () => {
@@ -17,6 +23,10 @@ storiesOf("Navbar", module).add("Navbar", () => {
     return (
         <Navbar>
             <NavigationWrapper>
+                <ImageWrapper 
+                    src="https://i.ibb.co/23Mc865/glovory.png" 
+                    alt="Glovory"
+                />
                 <Search 
                     size="lg"
                     clearValue

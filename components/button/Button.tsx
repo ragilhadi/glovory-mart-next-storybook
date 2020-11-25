@@ -3,8 +3,16 @@ import styled from 'styled-components';
 
 const ButtonContainer = styled.button`
   box-sizing: border-box;
-  min-width: 180px;
-  width: ${(props) => (props.full ? "100%" : "inherit")};
+  min-width: ${(props) => {
+    switch (props.size) {
+      case 'small':
+        return "80px";
+      case 'medium':
+        return "180px";
+      case 'full':
+        return "100%"
+    }
+  }};
   padding: 12px 16px;
   border-radius: 10px;
   outline: none;
@@ -77,7 +85,7 @@ export interface ButtonProps {
   text?: string;
   disable?: boolean;
   variant?: "primary" | "secondary" | "ghost";
-  full?: boolean;
+  size?: "small" | "medium" | "full"
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -93,7 +101,7 @@ const Button: React.FC<ButtonProps> = ({
 Button.defaultProps = {
   variant: "primary",
   disable: false,
-  full: false,
+  size: "medium"
 }
 
 export default Button;

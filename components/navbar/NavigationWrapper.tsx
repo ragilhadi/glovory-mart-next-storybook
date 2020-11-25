@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 
 const NaviWrapperContainer = styled.div`
     display: flex;
+    align-items: center;
     color: black;
 `
 

@@ -38,7 +38,7 @@ storiesOf("Card", module).add("Card", () => {
             <PriceText>
                 Rp.7000
             </PriceText>
-            <Button variant="primary" full={true}>Add to Cart</Button>
+            <Button variant="primary" size="full">Add to Cart</Button>
         </Card>
     )
 })
