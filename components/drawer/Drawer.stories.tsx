@@ -17,6 +17,8 @@ storiesOf("Drawer", module).add("Drawer", () => {
         <Drawer 
             isOpen={openDrawer} 
             handleClose={() => setOpenDrawer(!openDrawer)}
+            header="Cart"
+            option={true}
         />
     </>
     );

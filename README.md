@@ -4,11 +4,15 @@
 
 This Project Build With `Storybook`, `Next`, `Typescript`,
 
+## 💡 Template
+
+### Using Template from trinwin/storybook-next-ts-template
+
 ## ✅ Getting Started
 
 ```
 # Clone this repository
-git clone https://github.com/trinwin/storybook-next-ts-template
+git clone https://github.com/ragilhadi/glovory-mart-next-storybook.git
 
 # Go into the repository
 cd storybook-next-ts-template
@@ -25,3 +29,13 @@ yarn storybook
 # Run your test
 yarn test
 ```
+
+## 🚀 Deploy
+
+### Vercel
+
+https://glovory-mart-next-storybook.ragilhadi.vercel.app/
+
+### Netlify
+
+https://master--glovory-mart-next-storybook.netlify.app/
