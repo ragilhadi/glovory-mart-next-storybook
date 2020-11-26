@@ -35,6 +35,7 @@ const ProductContainer: React.FC<NavbarProps> =({
                 description={product.name} 
                 price={product.price}  
                 addCart={onAdd}
+                carts={cart}
             />
         ))}
     </ProductWrapper>

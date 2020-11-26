@@ -31,9 +31,25 @@ const Home = () => {
   )
 
   const addToCart = (product) => {
+    //   const existingProduct = cart.find(
+    //       (cartItem) => cartItem.id == product.id
+    //   )
+
+    //   if (existingProduct) {
+    //     return cart.map((cartItem) =>
+    //     cartItem.id === product.id
+    //       ? setCart({ ...cartItem, quantity: cartItem.quantity + 1 })
+    //       : setCart(cart)
+    //     );
+    //   }
+
       setCart(prevProps => {
           return [...prevProps, product]
       })
+  }
+
+  const emptyCart = () => {
+      setCart([])
   }
 
   return (
@@ -68,6 +84,8 @@ const Home = () => {
             handleClose={() => setisOpenDrawer(!isOpenDrawer)}
             header="Cart"
             option={true}
+            productCart={cart}
+            resetCart={emptyCart}
         />
         <ProductContainer 
             products={filterProduct} 
@@ -92,7 +110,7 @@ const ImageWrapper = styled.img`
 `
 
 const BodyContainer = styled.main`
-    padding: 64px 5%;
+    padding: 7.5% 5% 64px;
     min-height: calc(100vh - 80px - 100px);
     background-color: #F5F6F8;
 `

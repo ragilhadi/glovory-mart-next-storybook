@@ -2,6 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 
 const NavigationContainer = styled.div`
+    position: fixed;
+    width: 100%;
+    z-index: 10;
     display: flex;
     height: 80px;
     box-sizing: border-box;

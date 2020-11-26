@@ -2,9 +2,11 @@ import React from "react";
 import styled from 'styled-components';
 import Close from "@material-ui/icons/Close"
 import Button from '../button/Button';
+import ListItem from "../list-item/ListItem";
 
 const DrawerContainer = styled.div`
-  position: absolute;
+  position: fixed;
+  z-index: 11;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,7 +29,7 @@ const DrawerWrapper = styled.div`
   display: flex;
   padding: 0 16px;
   flex-direction: column;
-  width: 400px;
+  width: 500px;
   min-height: 100vh;
   background-color: white;
   box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -37,9 +39,17 @@ const DrawerHeaderWrapper = styled.div`
     display: flex;
     padding: 16px;
     justify-content: space-between;
+    margin-bottom: 1.5rem;
     align-items: center;
     height: 70px;
     border-bottom: 2px solid #ddd;
+`
+
+const ProductWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  overflow-y: scroll;
 `
 
 const CloseIcon = styled(Close)`
@@ -73,6 +83,8 @@ export interface DrawerProps {
   handleClose?: Function;
   header?: String;
   option?: boolean;
+  productCart?: any;
+  resetCart?: Function;
 };
 
 const Drawer: React.FC<DrawerProps> = ({
@@ -81,6 +93,8 @@ const Drawer: React.FC<DrawerProps> = ({
   handleClose,
   header,
   option,
+  productCart,
+  resetCart,
   ...rest
 }) => {
     return (
@@ -93,8 +107,18 @@ const Drawer: React.FC<DrawerProps> = ({
                             <CloseIcon onClick={handleClose}/>
                             <TextHeader>{header}</TextHeader>
                           </HeaderWrapper>
-                          {option ? <Button variant="ghost" size="small">Clear All</Button>: null}
+                          {option ? <Button variant="ghost" size="small" handleClick={resetCart}>Clear All</Button>: null}
                         </DrawerHeaderWrapper>
+                        <ProductWrapper>
+                          {productCart.map((product) => (
+                            <ListItem  
+                              key={product.id} 
+                              price={product.price} 
+                              name={product.name}
+                              url={product.url}
+                            />
+                          ))}
+                        </ProductWrapper>
                         <ButtonContainer>
                           <Button size="full">Purchase Order : Rp.14000</Button>
                         </ButtonContainer>

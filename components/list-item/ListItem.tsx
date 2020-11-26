@@ -46,21 +46,27 @@ const TextPrice = styled.h4`
 
 
 export interface ListItemProps {
+    url?: any;
+    name?: String;
+    price?: any;
 
 }
 
 const ListItem: React.FC<ListItemProps> = ({
-    children
+    children,
+    url,
+    name,
+    price
 }) => {
     return (
         <ListItemContainer>
             <ImageContainer 
-                src="https://i.ibb.co/Wfsp74f/1.png" 
+                src={url} 
                 alt="chitato product" 
             />
             <WrapperDescription>
                 <TextDescription>
-                    FRISIAN FLAG UHT Purefarm Cokelat 225 ml
+                    {name}
                 </TextDescription>
                 <WrapperQuantity>
                  <ButtonICon
@@ -78,7 +84,7 @@ const ListItem: React.FC<ListItemProps> = ({
             <WrapperPrice>
                 <Delete />
                 <TextPrice>
-                    Rp.7000
+                    {`Rp.${price}`}
                 </TextPrice>
             </WrapperPrice>
         </ListItemContainer>
