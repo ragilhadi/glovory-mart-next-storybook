@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import Close from "@material-ui/icons/Close"
 import Button from '../button/Button';
+import Link from 'next/link'
 import ListItem from "../list-item/ListItem";
 
 const DrawerContainer = styled.div`
@@ -85,8 +86,9 @@ const TextHeader = styled.h3`
     font-size: 1.25rem;
     margin-left: 1rem;
 `
-
-
+const HiddenElement = styled.span`
+  display: none;  
+`
 export interface DrawerProps {
   isOpen?: boolean;
   handleClose?: Function;
@@ -140,12 +142,18 @@ const Drawer: React.FC<DrawerProps> = ({
                             />
                           ))}
                         </ProductWrapper>
-                        <ButtonContainer>
+                        <HiddenElement>
                           {productCart.map((data) => (
                             total = total + (data.price * data.quantity)
                           ))}
-                          <Button size="full">{`Purchase Order: Rp.${total}`}</Button>
-                        </ButtonContainer>
+                        </HiddenElement>
+                        <Link href="/succes">
+                            <a>
+                            <ButtonContainer>
+                              <Button size="full">{`Purchase Order: Rp.${total}`}</Button>
+                            </ButtonContainer>
+                            </a>
+                        </Link>
                     </DrawerWrapper>
                     <DrawerOverlay onClick={handleClose}/>
                 </DrawerContainer>
@@ -153,6 +161,8 @@ const Drawer: React.FC<DrawerProps> = ({
         </>
     )
 }
+
+
 
 Drawer.defaultProps = {
   isOpen: false,

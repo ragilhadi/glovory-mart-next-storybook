@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import ProductContainer from '../components/product-container/ProductContainer'
 import Drawer from '@components/drawer/Drawer'
 import axios from 'axios';
+import Head from 'next/head'
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -89,6 +90,10 @@ const Home = () => {
 
   return (
     <>
+    <Head>
+        <title>Glovory | Mart</title>
+        <link rel="icon" href="/favicon.ico" />
+    </Head>
     <Navbar>
     <NavigationWrapper>
                 <ImageWrapper 
