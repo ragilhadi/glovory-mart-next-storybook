@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from "react";
+import React, { useState } from "react";
 import Button from '../button/Button'
 
 const CardContainer = styled.div`
@@ -65,8 +65,10 @@ export interface CardProps {
     description?: String;
     price?: String;
     cart?: any;
+    id?: any;
     product?: any;
     handleCart?: any;
+    addCart?: any;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -74,10 +76,19 @@ const Card: React.FC<CardProps> = ({
     url,
     description,
     price,
-    cart,
-    product,
-    handleCart,
+    id,
+    addCart,
 }) => {
+    const [productCart, setProductCart] = useState({
+        name: description,
+        price: price,
+        url: url,
+        id: id,
+    })
+
+    const addToCart = () => {
+        addCart(productCart)
+    }
     return (
         <CardContainer>
             <Image 
@@ -93,6 +104,7 @@ const Card: React.FC<CardProps> = ({
             <Button 
                 variant="primary" 
                 size="full" 
+                handleClick={addToCart}
                 // handleClick={addItemToCart(cart, product )}
             >
                 Add to Cart

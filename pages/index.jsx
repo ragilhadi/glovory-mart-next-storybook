@@ -7,11 +7,12 @@ import { ShoppingCart, AccountCircle } from "@material-ui/icons";
 import React, { useState, useEffect }  from 'react'
 import styled from 'styled-components';
 import ProductContainer from '../components/product-container/ProductContainer'
-import PRODUCT_DATA from '../data/Product'
+import Drawer from '@components/drawer/Drawer'
 import axios from 'axios';
 
 const Home = () => {
   const [search, setSearch] = useState("");
+  const [isOpenDrawer, setisOpenDrawer] = useState(false);
   const [data, setData] = useState([]);
   const [cart, setCart] = useState([]);
 
@@ -29,8 +30,12 @@ const Home = () => {
     data.name.toLowerCase().includes(search.toLowerCase())
   )
 
-  console.log(search)
-  
+  const addToCart = (product) => {
+      setCart(prevProps => {
+          return [...prevProps, product]
+      })
+  }
+
   return (
     <>
     <Navbar>
@@ -49,7 +54,8 @@ const Home = () => {
                 <ButtonIcon
                     icon={<ShoppingCart />}
                     badge={true}
-                    text="10"
+                    text={cart.length}
+                    handleClick={() => setisOpenDrawer(!isOpenDrawer)}
                 />
                 <ButtonIcon
                     icon={<AccountCircle />}
@@ -57,10 +63,17 @@ const Home = () => {
             </NavigationWrapper>
     </Navbar>
     <BodyContainer>
+        <Drawer 
+            isOpen={isOpenDrawer} 
+            handleClose={() => setisOpenDrawer(!isOpenDrawer)}
+            header="Cart"
+            option={true}
+        />
         <ProductContainer 
             products={filterProduct} 
             carts={cart} 
             handleCart={setCart}
+            onAdd={addToCart}
         />
     </BodyContainer>
     <Footer>

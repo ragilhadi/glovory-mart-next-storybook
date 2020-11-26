@@ -66,6 +66,7 @@ export interface ButtonIconProps {
   variant?: 'primary' | 'secondary';
   badge?: boolean;
   text?: String;
+  handleClick?: Function;
 
 };
 
@@ -74,10 +75,14 @@ const ButtonIcon: React.FC<ButtonIconProps> = ({
   badge,
   text,
   icon,
+  handleClick,
   ...rest
 }) => {
   return (
-    <ButtonIconContainer {...rest}>
+    <ButtonIconContainer 
+      {...rest}
+      onClick={handleClick}
+    >
       {icon}
       {badge && text ? (
         <Badge>{text}</Badge>

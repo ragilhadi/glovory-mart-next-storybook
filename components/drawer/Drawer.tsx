@@ -25,6 +25,7 @@ const DrawerWrapper = styled.div`
   right: 0;
   z-index: 11;
   display: flex;
+  padding: 0 16px;
   flex-direction: column;
   width: 400px;
   min-height: 100vh;
@@ -46,7 +47,14 @@ const CloseIcon = styled(Close)`
     cursor: pointer;
     background-color: #EFF2FF;
   }
+`
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  align-self: flex-end;
+  width: calc(100% - 32px);
 `
 
 const HeaderWrapper = styled.div`
@@ -87,7 +95,9 @@ const Drawer: React.FC<DrawerProps> = ({
                           </HeaderWrapper>
                           {option ? <Button variant="ghost" size="small">Clear All</Button>: null}
                         </DrawerHeaderWrapper>
-                        <Button>Purchase Order : Rp.14000</Button>
+                        <ButtonContainer>
+                          <Button size="full">Purchase Order : Rp.14000</Button>
+                        </ButtonContainer>
                     </DrawerWrapper>
                     <DrawerOverlay onClick={handleClose}/>
                 </DrawerContainer>

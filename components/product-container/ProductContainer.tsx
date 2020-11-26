@@ -15,6 +15,7 @@ export interface NavbarProps {
     products?: any;
     cart?: any;
     handleCart?: any;
+    onAdd?: any;
 }
 
 const ProductContainer: React.FC<NavbarProps> =({
@@ -22,18 +23,18 @@ const ProductContainer: React.FC<NavbarProps> =({
     products,
     cart,
     handleCart,
+    onAdd,
 }) => {
     return (
     <ProductWrapper>
         {products.map(product => (
             <Card 
                 key={product.id} 
+                id={product.id}
                 url={product.imageUrl} 
                 description={product.name} 
                 price={product.price}  
-                cart={cart}
-                handleCart={handleCart}
-                product={product}
+                addCart={onAdd}
             />
         ))}
     </ProductWrapper>

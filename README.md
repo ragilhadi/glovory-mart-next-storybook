@@ -8,6 +8,8 @@ This Project Build With `Storybook`, `Next`, `Typescript`,
 
 ### Using Template from trinwin/storybook-next-ts-template
 
+https://github.com/trinwin/storybook-next-ts-template
+
 ## ✅ Getting Started
 
 ```
@@ -38,4 +40,4 @@ https://glovory-mart-next-storybook.ragilhadi.vercel.app/
 
 ### Netlify
 
-https://master--glovory-mart-next-storybook.netlify.app/
+https://glovory-mart-next-storybook.netlify.app/
