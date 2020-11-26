@@ -24,6 +24,7 @@ const CardContainer = styled.div`
 
 const Image = styled.img`
     width: 180px;
+    height: 240px;
     object-fit: contain;
     margin-bottom: 1.5rem;
 `
@@ -42,17 +43,40 @@ const PriceText = styled.p`
     margin-bottom: 1.25rem;
 `
 
+// const addItemToCart = (cartItems, cartItemToAdd) => {
+//     const existingCartItem = cartItems.find(
+//       (cartItem) => cartItem.id === cartItemToAdd.id
+//     );
+  
+//     if (existingCartItem) {
+//       return cartItems.map((cartItem) =>
+//         cartItem.id === cartItemToAdd.id
+//           ? { ...cartItem, quantity: cartItem.quantity + 1 }
+//           : cartItem
+//       );
+//     }
+  
+//     return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
+//     return handleC
+//   };
+
 export interface CardProps {
     url?: String;
     description?: String;
-    price?: String
+    price?: String;
+    cart?: any;
+    product?: any;
+    handleCart?: any;
 }
 
 const Card: React.FC<CardProps> = ({
     children,
     url,
     description,
-    price
+    price,
+    cart,
+    product,
+    handleCart,
 }) => {
     return (
         <CardContainer>
@@ -66,7 +90,13 @@ const Card: React.FC<CardProps> = ({
             <PriceText>
                {`Rp. ${price}`}
             </PriceText>
-            <Button variant="primary" size="full">Add to Cart</Button>
+            <Button 
+                variant="primary" 
+                size="full" 
+                // handleClick={addItemToCart(cart, product )}
+            >
+                Add to Cart
+            </Button>
         </CardContainer>
     )
 }

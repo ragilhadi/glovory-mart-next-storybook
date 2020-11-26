@@ -13,6 +13,7 @@ import axios from 'axios';
 const Home = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
       const fetchData = async () => {
@@ -40,10 +41,8 @@ const Home = () => {
                 />
                 <Search 
                     size="lg"
-                    clearValue
                     value={search}
                     handleChange={(e) => setSearch(e.target.value)}
-                    handleClear={() => setSearch("")}
                 />
             </NavigationWrapper>
             <NavigationWrapper>
@@ -58,7 +57,11 @@ const Home = () => {
             </NavigationWrapper>
     </Navbar>
     <BodyContainer>
-        <ProductContainer products={filterProduct} />
+        <ProductContainer 
+            products={filterProduct} 
+            carts={cart} 
+            handleCart={setCart}
+        />
     </BodyContainer>
     <Footer>
             <p>© GlovoryMart - All rights reserved.</p>
