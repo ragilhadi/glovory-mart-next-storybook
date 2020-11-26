@@ -23,13 +23,11 @@ cd storybook-next-ts-template
 yarn install
 
 # Start client on localhost:3000
-yarn run dev
+yarn dev
 
 # Start Storybook
 yarn storybook
 
-# Run your test
-yarn test
 ```
 
 ## 🚀 Deploy
