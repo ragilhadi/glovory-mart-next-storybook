@@ -4,9 +4,17 @@ import styled from 'styled-components';
 
 const ProductWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 16px;
     box-sizing: border-box;
+
+    @media screen and (max-width: 1100px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 

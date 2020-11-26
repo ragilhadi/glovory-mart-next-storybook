@@ -52,6 +52,39 @@ const Home = () => {
       setCart([])
   }
 
+  const deleteProduct = (id) => {
+    setCart(prevProps => {
+        return prevProps.filter((item, index) => {
+            return index !== id
+        })
+    })
+  }
+
+//   const addSRemoveQuantity = (action,cart, product) => {
+//     const existingProduct = cart.find(
+//         (cartItem) => cartItem.id == product.id
+//     )
+
+//     switch(action) {
+//         case "add":
+//             if (existingProduct) {
+//                 return cart.map((cartItem) =>
+//                 cartItem.id === product.id
+//                   ? setCart([{ ...cartItem, quantity: cartItem.quantity + 1 }])
+//                   : setCart(cart)
+//                 );
+//             }
+//         case "remove":
+//             if (existingProduct) {
+//                 return cart.map((cartItem) =>
+//                 cartItem.id === product.id
+//                   ? setCart([{ ...cartItem, quantity: cartItem.quantity - 1 }])
+//                   : setCart(cart)
+//                 );
+//               }
+//     }
+//   }
+
   console.log(cart)
 
   return (
@@ -62,7 +95,7 @@ const Home = () => {
                     src="https://i.ibb.co/23Mc865/glovory.png" 
                     alt="Glovory"
                 />
-                <Search 
+                <SearchContainer 
                     size="lg"
                     value={search}
                     handleChange={(e) => setSearch(e.target.value)}
@@ -88,6 +121,8 @@ const Home = () => {
             option={true}
             productCart={cart}
             resetCart={emptyCart}
+            // onAddRemove={addSRemoveQuantity}
+            onDeleteProduct={deleteProduct}
         />
         <ProductContainer 
             products={filterProduct} 
@@ -112,9 +147,23 @@ const ImageWrapper = styled.img`
 `
 
 const BodyContainer = styled.main`
-    padding: 7.5% 5% 64px;
+    padding: 10% 5% 64px;
+    width: 100%;
     min-height: calc(100vh - 80px - 100px);
     background-color: #F5F6F8;
+
+    @media screen and (max-width: 850px) {
+        padding: 20% 5% 64px;
+    }
+    @media screen and (max-width: 450px) {
+        padding: 30% 5% 64px;
+    }
+`
+
+const SearchContainer = styled(Search)`
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
 `
 
 

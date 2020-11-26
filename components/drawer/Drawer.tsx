@@ -50,6 +50,15 @@ const ProductWrapper = styled.div`
   flex-direction: column;
   height: 550px;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
 `
 
 const CloseIcon = styled(Close)`
@@ -85,6 +94,8 @@ export interface DrawerProps {
   option?: boolean;
   productCart?: any;
   resetCart?: Function;
+  onAddremove?: any;
+  onDeleteProduct?: any;
 };
 
 const Drawer: React.FC<DrawerProps> = ({
@@ -95,8 +106,16 @@ const Drawer: React.FC<DrawerProps> = ({
   option,
   productCart,
   resetCart,
+  onAddremove,
+  onDeleteProduct,
   ...rest
 }) => {
+    
+    const AddQuantity = () => {
+      onAddremove(productCart)
+    }
+
+
     return (
         <>
             {isOpen ? (
@@ -113,10 +132,12 @@ const Drawer: React.FC<DrawerProps> = ({
                           {productCart.map((product) => (
                             <ListItem  
                               key={product.id} 
+                              id={product.id}
                               price={product.price} 
                               name={product.name}
                               url={product.url}
                               quantity={product.quantity}
+                              onDeleteProduct={onDeleteProduct}
                             />
                           ))}
                         </ProductWrapper>

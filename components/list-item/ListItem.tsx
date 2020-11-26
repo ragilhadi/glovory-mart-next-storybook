@@ -49,16 +49,25 @@ export interface ListItemProps {
     url?: any;
     name?: String;
     price?: any;
+    id?:any;
     quantity?: any;
+    onDeleteProduct?: any;
 }
 
 const ListItem: React.FC<ListItemProps> = ({
     children,
     url,
+    id,
     name,
     price,
     quantity,
+    onDeleteProduct,
 }) => {
+
+    const deleteCartProduct = () => {
+        onDeleteProduct(id)
+    }
+
     return (
         <ListItemContainer>
             <ImageContainer 
@@ -83,7 +92,7 @@ const ListItem: React.FC<ListItemProps> = ({
                 </WrapperQuantity>
             </WrapperDescription>
             <WrapperPrice>
-                <Delete />
+                <Delete onClick={() => deleteCartProduct}/>
                 <TextPrice>
                     {`Rp.${price}`}
                 </TextPrice>

@@ -12,7 +12,7 @@ const CardContainer = styled.div`
     background-color: white;
     color: black;
     min-height: 400px;
-    width: 250px;
+    width: 300px;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -42,23 +42,6 @@ const PriceText = styled.p`
     align-self: flex-start;
     margin-bottom: 1.25rem;
 `
-
-// const addItemToCart = (cartItems, cartItemToAdd) => {
-//     const existingCartItem = cartItems.find(
-//       (cartItem) => cartItem.id === cartItemToAdd.id
-//     );
-  
-//     if (existingCartItem) {
-//       return cartItems.map((cartItem) =>
-//         cartItem.id === cartItemToAdd.id
-//           ? { ...cartItem, quantity: cartItem.quantity + 1 }
-//           : cartItem
-//       );
-//     }
-  
-//     return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
-//     return handleC
-//   };
 
 export interface CardProps {
     url?: String;
