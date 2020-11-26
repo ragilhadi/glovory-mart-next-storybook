@@ -17,7 +17,7 @@ https://github.com/trinwin/storybook-next-ts-template
 git clone https://github.com/ragilhadi/glovory-mart-next-storybook.git
 
 # Go into the repository
-cd storybook-next-ts-template
+cd glovory-mart-next-storybook
 
 # Install client dependencies
 yarn install
