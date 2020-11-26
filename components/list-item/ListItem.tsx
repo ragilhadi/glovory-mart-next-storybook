@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from "react";
+import React, { useState } from "react";
 import ButtonICon from '../button-icon/ButtonIcon'
 import Add from "@material-ui/icons/Add"
 import Remove from "@material-ui/icons/Remove"
@@ -52,6 +52,8 @@ export interface ListItemProps {
     id?:any;
     quantity?: any;
     onDeleteProduct?: any;
+    onAddRemove?: any;
+    cart?: any;
 }
 
 const ListItem: React.FC<ListItemProps> = ({
@@ -60,9 +62,26 @@ const ListItem: React.FC<ListItemProps> = ({
     id,
     name,
     price,
+    cart,
     quantity,
     onDeleteProduct,
+    onAddRemove,
 }) => {
+    const [productCart, setProductCart] = useState({
+        name: name,
+        price: price,
+        url: url,
+        id: id,
+        quantity: quantity
+    })
+
+    const addQuantity = () => {
+      onAddRemove("add", cart, productCart)
+    }
+
+    const removeQuantity = () => {
+        onAddRemove("remove", cart, productCart)
+    }
 
     const deleteCartProduct = () => {
         onDeleteProduct(id)
@@ -80,11 +99,13 @@ const ListItem: React.FC<ListItemProps> = ({
                 </TextDescription>
                 <WrapperQuantity>
                  <ButtonICon
+                    handleClick={addQuantity}
                     variant="secondary"
                     icon={<Add />}
                  />
                  <p>{quantity}</p>
                  <ButtonICon
+                    handleClick={removeQuantity}
                     variant="secondary"
                     icon={<Remove />}
                  />

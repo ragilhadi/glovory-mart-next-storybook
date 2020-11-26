@@ -60,30 +60,30 @@ const Home = () => {
     })
   }
 
-//   const addSRemoveQuantity = (action,cart, product) => {
-//     const existingProduct = cart.find(
-//         (cartItem) => cartItem.id == product.id
-//     )
+  const addRemoveQuantity = (action,cart, product) => {
+    const existingProduct = cart.find(
+        (cartItem) => cartItem.id == product.id
+    )
 
-//     switch(action) {
-//         case "add":
-//             if (existingProduct) {
-//                 return cart.map((cartItem) =>
-//                 cartItem.id === product.id
-//                   ? setCart([{ ...cartItem, quantity: cartItem.quantity + 1 }])
-//                   : setCart(cart)
-//                 );
-//             }
-//         case "remove":
-//             if (existingProduct) {
-//                 return cart.map((cartItem) =>
-//                 cartItem.id === product.id
-//                   ? setCart([{ ...cartItem, quantity: cartItem.quantity - 1 }])
-//                   : setCart(cart)
-//                 );
-//               }
-//     }
-//   }
+    switch(action) {
+        case "add":
+            if (existingProduct) {
+                return cart.map((cartItem) =>
+                cartItem.id === product.id
+                  ? setCart([{ ...cartItem, quantity: cartItem.quantity + 1 }])
+                  : setCart(cart)
+                );
+            }
+        case "remove":
+            if (existingProduct) {
+                return cart.map((cartItem) =>
+                cartItem.id === product.id
+                  ? setCart([{ ...cartItem, quantity: cartItem.quantity - 1 }])
+                  : setCart(cart)
+                );
+              }
+    }
+  }
 
   console.log(cart)
 
@@ -121,7 +121,7 @@ const Home = () => {
             option={true}
             productCart={cart}
             resetCart={emptyCart}
-            // onAddRemove={addSRemoveQuantity}
+            onAddRemove={addRemoveQuantity}
             onDeleteProduct={deleteProduct}
         />
         <ProductContainer 

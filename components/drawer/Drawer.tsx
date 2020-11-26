@@ -94,7 +94,7 @@ export interface DrawerProps {
   option?: boolean;
   productCart?: any;
   resetCart?: Function;
-  onAddremove?: any;
+  onAddRemove?: any;
   onDeleteProduct?: any;
 };
 
@@ -106,15 +106,12 @@ const Drawer: React.FC<DrawerProps> = ({
   option,
   productCart,
   resetCart,
-  onAddremove,
+  onAddRemove,
   onDeleteProduct,
   ...rest
 }) => {
     
-    const AddQuantity = () => {
-      onAddremove(productCart)
-    }
-
+  var total = 0;
 
     return (
         <>
@@ -136,13 +133,18 @@ const Drawer: React.FC<DrawerProps> = ({
                               price={product.price} 
                               name={product.name}
                               url={product.url}
+                              cart={productCart}
                               quantity={product.quantity}
+                              onAddRemove={onAddRemove}
                               onDeleteProduct={onDeleteProduct}
                             />
                           ))}
                         </ProductWrapper>
                         <ButtonContainer>
-                          <Button size="full">Purchase Order : Rp.14000</Button>
+                          {productCart.map((data) => (
+                            total = total + (data.price * data.quantity)
+                          ))}
+                          <Button size="full">{`Purchase Order: Rp.${total}`}</Button>
                         </ButtonContainer>
                     </DrawerWrapper>
                     <DrawerOverlay onClick={handleClose}/>
