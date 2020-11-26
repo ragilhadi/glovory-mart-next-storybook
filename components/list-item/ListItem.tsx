@@ -49,14 +49,15 @@ export interface ListItemProps {
     url?: any;
     name?: String;
     price?: any;
-
+    quantity?: any;
 }
 
 const ListItem: React.FC<ListItemProps> = ({
     children,
     url,
     name,
-    price
+    price,
+    quantity,
 }) => {
     return (
         <ListItemContainer>
@@ -73,7 +74,7 @@ const ListItem: React.FC<ListItemProps> = ({
                     variant="secondary"
                     icon={<Add />}
                  />
-                 <p>10</p>
+                 <p>{quantity}</p>
                  <ButtonICon
                     variant="secondary"
                     icon={<Remove />}

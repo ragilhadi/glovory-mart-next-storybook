@@ -30,18 +30,18 @@ const Home = () => {
     data.name.toLowerCase().includes(search.toLowerCase())
   )
 
-  const addToCart = (product) => {
-    //   const existingProduct = cart.find(
-    //       (cartItem) => cartItem.id == product.id
-    //   )
+  const addToCart = (cart, product) => {
+      const existingProduct = cart.find(
+          (cartItem) => cartItem.id == product.id
+      )
 
-    //   if (existingProduct) {
-    //     return cart.map((cartItem) =>
-    //     cartItem.id === product.id
-    //       ? setCart({ ...cartItem, quantity: cartItem.quantity + 1 })
-    //       : setCart(cart)
-    //     );
-    //   }
+      if (existingProduct) {
+        return cart.map((cartItem) =>
+        cartItem.id === product.id
+          ? setCart([{ ...cartItem, quantity: cartItem.quantity + 1 }])
+          : setCart(cart)
+        );
+      }
 
       setCart(prevProps => {
           return [...prevProps, product]
@@ -51,6 +51,8 @@ const Home = () => {
   const emptyCart = () => {
       setCart([])
   }
+
+  console.log(cart)
 
   return (
     <>

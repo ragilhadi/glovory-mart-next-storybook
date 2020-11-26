@@ -69,7 +69,7 @@ export interface CardProps {
     product?: any;
     handleCart?: any;
     addCart?: any;
-    carts?: any;
+    productCarts?: any;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -79,18 +79,19 @@ const Card: React.FC<CardProps> = ({
     price,
     id,
     addCart,
-    carts,
+    productCarts,
 }) => {
     const [productCart, setProductCart] = useState({
         name: description,
         price: price,
         url: url,
         id: id,
-        quantitY: 1
+        quantity: 1
     })
 
     const addToCart = () => {
-        addCart(productCart)
+        console.log(productCarts)
+        addCart(productCarts, productCart)
     }
     return (
         <CardContainer>

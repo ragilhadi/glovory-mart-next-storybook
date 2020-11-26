@@ -116,6 +116,7 @@ const Drawer: React.FC<DrawerProps> = ({
                               price={product.price} 
                               name={product.name}
                               url={product.url}
+                              quantity={product.quantity}
                             />
                           ))}
                         </ProductWrapper>

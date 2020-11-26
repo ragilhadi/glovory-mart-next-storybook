@@ -13,16 +13,14 @@ const ProductWrapper = styled.div`
 
 export interface NavbarProps {
     products?: any;
-    cart?: any;
-    handleCart?: any;
+    carts?: any;
     onAdd?: any;
 }
 
 const ProductContainer: React.FC<NavbarProps> =({
     children,
     products,
-    cart,
-    handleCart,
+    carts,
     onAdd,
 }) => {
     return (
@@ -35,7 +33,7 @@ const ProductContainer: React.FC<NavbarProps> =({
                 description={product.name} 
                 price={product.price}  
                 addCart={onAdd}
-                carts={cart}
+                productCarts={carts}
             />
         ))}
     </ProductWrapper>
